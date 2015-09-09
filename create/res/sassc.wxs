@@ -86,10 +86,10 @@
 					<Component Id="MainHeaders" Guid="197A3319-8495-484D-863F-5B99AE4F8B94">
 						<File Id="sass.h" Name="sass.h" Source="sass.h" KeyPath="yes" />
 						<File Id="sass2scss.h" Name="sass2scss.h" Source="sass2scss.h" KeyPath="no" />
-						<File Id="sass_values.h" Name="sass_values.h" Source="sass_values.h" KeyPath="no" />
-						<File Id="sass_version.h" Name="sass_version.h" Source="sass_version.h" KeyPath="no" />
-						<File Id="sass_context.h" Name="sass_context.h" Source="sass_context.h" KeyPath="no" />
-						<File Id="sass_functions.h" Name="sass_functions.h" Source="sass_functions.h" KeyPath="no" />
+						<File Id="sass_values.h" Name="sass_values.h" Source="sass/values.h" KeyPath="no" />
+						<File Id="sass_version.h" Name="sass_version.h" Source="sass/version.h" KeyPath="no" />
+						<File Id="sass_context.h" Name="sass_context.h" Source="sass/context.h" KeyPath="no" />
+						<File Id="sass_functions.h" Name="sass_functions.h" Source="sass/functions.h" KeyPath="no" />
 					</Component>
 
 					<Component Id="PathPerUser" Guid="197A3319-CFC7-4F71-9124-AA38D62B7F0B" KeyPath="yes">

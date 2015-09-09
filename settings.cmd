@@ -14,6 +14,8 @@ for /F "tokens=3 delims=-." %%V IN ('echo %gitrelease%') DO set gitpatch=%%V
 for /F "tokens=4 delims=-." %%V IN ('echo %gitrelease%') DO set gitmicro=%%V
 for /F "tokens=5 delims=-." %%V IN ('echo %gitrelease%') DO set githash=%%V
 
+for /F "tokens=2 delims=eta" %%V IN ('echo %gitmicro%') DO set gitmicro=%%V
+
 set gitversion=%gitmajor%.%gitminor%.%gitpatch%
 
 if "%gitmicro%" NEQ "" set gitversion=%gitversion%.%gitmicro%
