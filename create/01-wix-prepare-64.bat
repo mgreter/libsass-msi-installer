@@ -1,13 +1,15 @@
 @echo off
 SETLOCAL
-call ..\settings.cmd
+set ARCH=x64
+cd /D %~dp0
 
-if not exist 64 mkdir 64
+call %CD%\..\settings.cmd
+if not exist %ARCH% mkdir %ARCH%
 
-cd 64
+cd %ARCH%
 
-REM call copy ...\32\*.h .
-REM call copy ...\32\sassc.exe .
-REM call copy ...\32\libsass.dll .
+REM call copy ...\%ARCH%\*.h .
+REM call copy ...\%ARCH%\sassc.exe .
+REM call copy ...\%ARCH%\libsass.dll .
 
 cd ..

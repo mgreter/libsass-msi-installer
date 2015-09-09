@@ -1,6 +1,6 @@
 @echo off
 
-for /F "tokens=2 skip=1" %%V IN ('32\sassc.exe -v') DO (
+for /F "tokens=2 skip=1" %%V IN ('x86\sassc.exe -v') DO (
 	set gitrelease=%%V
 	goto :has_release
 )

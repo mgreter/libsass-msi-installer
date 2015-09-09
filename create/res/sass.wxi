@@ -17,15 +17,15 @@
 	<?if $(var.Platform) = x64 ?>
 		<!-- Product name as you want it to appear in Add/Remove Programs-->
 		<?define Win64 = "yes" ?>
-		<?define Executable = "64\sassc.exe" ?>
+		<?define Executable = "x64\sassc.exe" ?>
 		<?define ProductName = "libsass $(var.Version) (64 bit)" ?>
-		<?define ProductDescription = "libsass and sassc $(var.Version) x64" ?>
+		<?define ProductDescription = "libsass and sassc/psass $(var.Version) x64" ?>
 		<?define PlatformProgramFilesFolder = "ProgramFiles64Folder" ?>
 	<?else ?>
 		<?define Win64 = "no" ?>
-		<?define Executable = "32\sassc.exe" ?>
+		<?define Executable = "x86\sassc.exe" ?>
 		<?define ProductName = "libsass $(var.Version) (32 bit)" ?>
-		<?define ProductDescription = "libsass and sassc $(var.Version) x86" ?>
+		<?define ProductDescription = "libsass and sassc/psass $(var.Version) x86" ?>
 		<?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
 	<?endif ?>
 

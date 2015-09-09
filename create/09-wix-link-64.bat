@@ -1,20 +1,22 @@
 @echo off
 SETLOCAL
-call ..\settings.cmd
+set ARCH=x64
+cd /D %~dp0
 
+call %CD%\..\settings.cmd
 if not exist dist mkdir dist
 
-cd 64
+cd %ARCH%
 
 "%WIX%\bin\light.exe" ^
 -nologo -sw1076 ^
--dPlatform="x64" ^
+-dPlatform="%ARCH%" ^
 -dGitVersion=%gitversion% ^
 -b bin dist\files.wixobj ^
-dist\sassc.wixobj ^
+dist\sass.wixobj ^
 -ext WixBalExtension ^
 -ext WixUIExtension ^
 -ext WixUtilExtension ^
--o ..\dist\libsass-%gitrelease%-x64.msi
+-o ..\dist\libsass-%gitrelease%-%ARCH%.msi
 
 cd ..

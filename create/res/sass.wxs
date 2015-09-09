@@ -5,7 +5,7 @@
 >
 
 	<!-- load variables -->
-	<?include sassc.wxi?>
+	<?include sass.wxi?>
 
 	<!-- libsass product -->
 	<Product Id="*"
@@ -74,23 +74,31 @@
 					-->
 
 					<Directory Id="BINDIR" Name=".">
-					<Component Id="MainExecutable" Guid="197A3319-093A-420F-A730-AEE2DA30BA46">
-						<File Id="sassc.exe" Name="sassc.exe" Source="sassc.exe" KeyPath="yes"/>
-					</Component>
+						<Component Id="MainExecutable" Guid="197A3319-093A-420F-A730-AEE2DA30BA46">
+							<File Id="sassc.exe" Name="sassc.exe" Source="sassc.exe" KeyPath="yes"/>
+						</Component>
+						<Component Id="PerlExecutable" Guid="197A3319-093A-420F-A730-AEE2DA30BA47">
+							<File Id="psass.exe" Name="psass.exe" Source="psass.exe" KeyPath="yes"/>
+						</Component>
 					</Directory>
 
 					<Component Id="MainLibrary" Guid="197A3319-9DE1-419A-BFB2-633678FF9F0A">
 						<File Id="libsass.dll" Name="libsass.dll" Source="libsass.dll" KeyPath="yes"/>
 					</Component>
 
-					<Component Id="MainHeaders" Guid="197A3319-8495-484D-863F-5B99AE4F8B94">
-						<File Id="sass.h" Name="sass.h" Source="sass.h" KeyPath="yes" />
-						<File Id="sass2scss.h" Name="sass2scss.h" Source="sass2scss.h" KeyPath="no" />
-						<File Id="sass_values.h" Name="sass_values.h" Source="sass/values.h" KeyPath="no" />
-						<File Id="sass_version.h" Name="sass_version.h" Source="sass/version.h" KeyPath="no" />
-						<File Id="sass_context.h" Name="sass_context.h" Source="sass/context.h" KeyPath="no" />
-						<File Id="sass_functions.h" Name="sass_functions.h" Source="sass/functions.h" KeyPath="no" />
-					</Component>
+					<Directory Id="INCLUDEDIR" Name="include">
+						<Component Id="MainHeaders" Guid="197A3319-8495-484D-863F-5B99AE4F8B94">
+							<File Id="sass.h" Name="sass.h" Source="include/sass.h" KeyPath="yes" />
+							<File Id="sass2scss.h" Name="sass2scss.h" Source="include/sass2scss.h" KeyPath="no" />
+						</Component>
+						<Directory Id="SASSDIR" Name="sass">
+							<Component Id="SassHeaders" Guid="197A3319-8495-484D-863F-5B99AE4F8B95">
+								<File Id="sass_values.h" Name="values.h" Source="include/sass/values.h" KeyPath="no" />
+								<File Id="sass_context.h" Name="context.h" Source="include/sass/context.h" KeyPath="no" />
+								<File Id="sass_functions.h" Name="functions.h" Source="include/sass/functions.h" KeyPath="no" />
+							</Component>
+						</Directory>
+					</Directory>
 
 					<Component Id="PathPerUser" Guid="197A3319-CFC7-4F71-9124-AA38D62B7F0B" KeyPath="yes">
 						<Condition>ALLUSERS="" OR (ALLUSERS=2 AND (NOT Privileged))</Condition>
@@ -134,19 +142,19 @@
 			InstallDefault="local"
 			TypicalDefault="install"
 			ConfigurableDirectory="APPLICATIONFOLDER"
-			Description="libsass library and sassc util."
+			Description="Libsass library (dll plus headers) plus command line utilities."
 		>
 
 			<Feature
 				Level="3"
 				Id="MainAsset"
 				Absent="disallow"
-				Title="Library"
+				Title="Libsass Library"
 				AllowAdvertise="no"
 				TypicalDefault="install"
 				InstallDefault="followParent"
 				ConfigurableDirectory="APPLICATIONFOLDER"
-				Description="Install shared libsass library."
+				Description="Install shared libsass library (dll)."
 			>
 
 				<ComponentRef Id="MainLibrary" />
@@ -157,7 +165,7 @@
 				Level="3"
 				Id="MainProgram"
 				Absent="allow"
-				Title="Utility"
+				Title="Native Utility (sassc)"
 				AllowAdvertise="no"
 				TypicalDefault="install"
 				InstallDefault="followParent"
@@ -170,15 +178,31 @@
 			</Feature>
 
 			<Feature
-				Level="3"
-				Id="PathUpdate"
+				Level="6"
+				Id="PsassProgram"
 				Absent="allow"
-				Title="Global Path"
+				Title="Perl Utility (psass)"
 				AllowAdvertise="no"
 				TypicalDefault="install"
 				InstallDefault="followParent"
 				ConfigurableDirectory="APPLICATIONFOLDER"
-				Description="Add the executable path to the PATH environment variable."
+				Description="Install `psass` perl command line utility."
+			>
+
+				<ComponentRef Id="PerlExecutable" />
+
+			</Feature>
+
+			<Feature
+				Level="3"
+				Id="PathUpdate"
+				Absent="allow"
+				Title="Add Global Path"
+				AllowAdvertise="no"
+				TypicalDefault="install"
+				InstallDefault="followParent"
+				ConfigurableDirectory="APPLICATIONFOLDER"
+				Description="Add the installation path to the PATH environment variable."
 			>
 
 				<ComponentRef Id="PathPerUser" />
@@ -190,15 +214,16 @@
 				Level="99"
 				Id="MainIncludes"
 				Absent="allow"
-				Title="Dev Includes"
+				Title="Header Files (dev)"
 				AllowAdvertise="no"
 				TypicalDefault="install"
 				InstallDefault="followParent"
 				ConfigurableDirectory="APPLICATIONFOLDER"
-				Description="Install C source header files."
+				Description="Install C headers to link against libsass library (dll)."
 			>
 
 				<ComponentRef Id="MainHeaders" />
+				<ComponentRef Id="SassHeaders" />
 
 			</Feature>
 
@@ -229,6 +254,20 @@
 			Property="ARPINSTALLLOCATION"
 			Value="[APPLICATIONFOLDER]"
 		/>
+
+		<CustomAction
+			Id="StartAppOnExit"
+			Directory="APPLICATIONFOLDER"
+			ExeCommand="explorer ."
+			Execute="immediate"
+			Impersonate="yes"
+			Return="asyncNoWait"
+		/>
+
+		<!-- add checkbox to exit dialog -->
+		<Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1"/>
+		<Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Open installation directory after setup exits." />
+		<UI><Publish Dialog="ExitDialog" Control="Finish" Order="1" Event="DoAction" Value="StartAppOnExit">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and not Installed</Publish></UI>
 
 		<!-- Schedule custom actions on ui -->
 		<InstallUISequence>
