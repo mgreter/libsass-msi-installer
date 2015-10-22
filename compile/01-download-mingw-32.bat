@@ -1,3 +1,6 @@
+@echo off
+set ARCH=32
+
 set PATH=%programfiles%\7-zip;%PATH%
 
 wget -c "http://downloads.sourceforge.net/project/mingw-w64/Toolchains targetting Win32/Personal Builds/mingw-builds/4.9.3/threads-win32/sjlj/i686-4.9.3-release-win32-sjlj-rt_v4-rev1.7z"

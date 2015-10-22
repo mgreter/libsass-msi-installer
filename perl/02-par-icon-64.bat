@@ -1,4 +1,4 @@
 @echo off
 set ARCH=64
-call %CD%\06-install.cmd
+call %CD%\02-par-icon.cmd
 pause

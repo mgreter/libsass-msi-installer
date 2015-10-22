@@ -83,8 +83,15 @@
 					</Directory>
 
 					<Component Id="MainLibrary" Guid="197A3319-9DE1-419A-BFB2-633678FF9F0A">
+						<File Id="libsass.a" Name="libsass.a" Source="libsass.a" KeyPath="no"/>
 						<File Id="libsass.dll" Name="libsass.dll" Source="libsass.dll" KeyPath="yes"/>
 					</Component>
+
+					<Directory Id="PLUGINDIR" Name="plugin">
+						<Component Id="PluginLibrary" Guid="197A3319-9DE1-419A-BFB2-633678FF9F0B">
+							<File Id="math.dll" Name="math.dll" Source="plugin/math.dll" KeyPath="yes"/>
+						</Component>
+					</Directory>
 
 					<Directory Id="INCLUDEDIR" Name="include">
 						<Component Id="MainHeaders" Guid="197A3319-8495-484D-863F-5B99AE4F8B94">
@@ -142,7 +149,7 @@
 			InstallDefault="local"
 			TypicalDefault="install"
 			ConfigurableDirectory="APPLICATIONFOLDER"
-			Description="Libsass library (dll plus headers) plus command line utilities."
+			Description="Libsass library (dll plus headers) and command line utilities."
 		>
 
 			<Feature
@@ -154,7 +161,7 @@
 				TypicalDefault="install"
 				InstallDefault="followParent"
 				ConfigurableDirectory="APPLICATIONFOLDER"
-				Description="Install shared libsass library (dll)."
+				Description="Install shared and static libsass library (.dll/.a)."
 			>
 
 				<ComponentRef Id="MainLibrary" />
@@ -186,7 +193,7 @@
 				TypicalDefault="install"
 				InstallDefault="followParent"
 				ConfigurableDirectory="APPLICATIONFOLDER"
-				Description="Install `psass` perl command line utility."
+				Description="Install `psass` command line utility (embedded perl binding)."
 			>
 
 				<ComponentRef Id="PerlExecutable" />
@@ -197,12 +204,12 @@
 				Level="3"
 				Id="PathUpdate"
 				Absent="allow"
-				Title="Add Global Path"
+				Title="Add to Global Path"
 				AllowAdvertise="no"
 				TypicalDefault="install"
 				InstallDefault="followParent"
 				ConfigurableDirectory="APPLICATIONFOLDER"
-				Description="Add the installation path to the PATH environment variable."
+				Description="Add the install location to the PATH environment variable."
 			>
 
 				<ComponentRef Id="PathPerUser" />
@@ -219,11 +226,27 @@
 				TypicalDefault="install"
 				InstallDefault="followParent"
 				ConfigurableDirectory="APPLICATIONFOLDER"
-				Description="Install C headers to link against libsass library (dll)."
+				Description="Install C headers to develop and link against libsass library."
 			>
 
 				<ComponentRef Id="MainHeaders" />
 				<ComponentRef Id="SassHeaders" />
+
+			</Feature>
+
+			<Feature
+				Level="99"
+				Id="PluginMath"
+				Absent="allow"
+				Title="Math plugin (experimental)"
+				AllowAdvertise="no"
+				TypicalDefault="install"
+				InstallDefault="followParent"
+				ConfigurableDirectory="APPLICATIONFOLDER"
+				Description="Install math (pow/fact/exp/sqrt and trigonometry) plugin."
+			>
+
+				<ComponentRef Id="PluginLibrary" />
 
 			</Feature>
 
