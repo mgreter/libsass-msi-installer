@@ -1,4 +1,4 @@
 @echo off
 set ARCH=32
-call %CD%\98-exe-icon.cmd
+call %~dp0\98-exe-icon.cmd
 pause

@@ -1,3 +1,3 @@
 @echo off
 set ARCH=64
-call %CD%\99-shell.cmd
+call %~dp0\99-shell.cmd

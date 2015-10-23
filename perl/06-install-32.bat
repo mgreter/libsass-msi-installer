@@ -1,4 +1,4 @@
 @echo off
 set ARCH=32
-call %CD%\06-install.cmd
+call %~dp0\06-install.cmd
 pause

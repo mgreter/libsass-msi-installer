@@ -1,4 +1,4 @@
 @echo off
 set ARCH=64
-call %CD%\08-pack.cmd
+call %~dp0\08-pack.cmd
 pause

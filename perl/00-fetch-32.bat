@@ -1,4 +1,4 @@
 @echo off
 set ARCH=32
-call %CD%\00-fetch.cmd
+call %~dp0\00-fetch.cmd
 pause
