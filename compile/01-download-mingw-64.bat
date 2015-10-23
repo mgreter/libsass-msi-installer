@@ -1,5 +1,7 @@
 @echo off
-set ARCH=32
+cd /D %~dp0
+set ARCH=64
+call ..\unxutils.cmd
 
 set PATH=%programfiles%\7-zip;%PATH%
 

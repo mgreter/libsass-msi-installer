@@ -1,5 +1,6 @@
 @echo off
-
+cd /D %~dp0
+call ..\mingw.cmd
 if not exist %ARCH% mkdir %ARCH%
 
 git -C %ARCH% clone https://github.com/sass/libsass.git

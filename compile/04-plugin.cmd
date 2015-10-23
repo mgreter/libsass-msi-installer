@@ -1,5 +1,7 @@
 @echo off
-call %CD%\..\mingw.cmd
+cd /D %~dp0
+call ..\mingw.cmd
+if not exist %ARCH% mkdir %ARCH%
 
 if not exist %SASS_PLUGIN_PATH%\build (
 	mkdir %SASS_PLUGIN_PATH%\build
