@@ -20,5 +20,6 @@ copy %SASS_LIBSASS_PATH%\include\sass.h %PREFIX%\include
 copy %SASS_LIBSASS_PATH%\include\sass2scss.h %PREFIX%\include
 copy %SASS_LIBSASS_PATH%\include\sass\base.h %PREFIX%\include\sass
 copy %SASS_LIBSASS_PATH%\include\sass\values.h %PREFIX%\include\sass
+copy %SASS_LIBSASS_PATH%\include\sass\version.h %PREFIX%\include\sass
 copy %SASS_LIBSASS_PATH%\include\sass\context.h %PREFIX%\include\sass
 copy %SASS_LIBSASS_PATH%\include\sass\functions.h %PREFIX%\include\sass

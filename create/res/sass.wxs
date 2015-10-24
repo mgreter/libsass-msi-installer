@@ -100,9 +100,11 @@
 						</Component>
 						<Directory Id="SASSDIR" Name="sass">
 							<Component Id="SassHeaders" Guid="197A3319-8495-484D-863F-5B99AE4F8B95">
+								<File Id="sass_base.h" Name="base.h" Source="include/sass/base.h" KeyPath="no" />
 								<File Id="sass_values.h" Name="values.h" Source="include/sass/values.h" KeyPath="no" />
 								<File Id="sass_context.h" Name="context.h" Source="include/sass/context.h" KeyPath="no" />
 								<File Id="sass_functions.h" Name="functions.h" Source="include/sass/functions.h" KeyPath="no" />
+								<File Id="sass_version.h" Name="version.h" Source="include/sass/version.h" KeyPath="no" />
 							</Component>
 						</Directory>
 					</Directory>
