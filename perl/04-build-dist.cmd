@@ -1,4 +1,5 @@
 @echo off
+SETLOCAL
 cd /D %~dp0
 call settings.cmd
 call ..\unxutils.cmd
@@ -11,7 +12,7 @@ cd perl-libsass
 
 call cpanm --installdeps .
 call perl Makefile.PL
-call dmake -P10 dist
+call dmake -P10 dist > nul
 
 cd ..
 

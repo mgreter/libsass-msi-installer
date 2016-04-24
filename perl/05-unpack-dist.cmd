@@ -1,4 +1,5 @@
 @echo off
+SETLOCAL
 cd /D %~dp0
 call settings.cmd
 call ..\unxutils.cmd
@@ -9,6 +10,6 @@ if not exist dist\%ARCH% mkdir dist\%ARCH%
 
 cd dist\%ARCH%
 
-call ptar -x -v -z -vf ..\..\%ARCH%\perl-libsass\CSS-Sass-%RELVERSION%.tar.gz
+call ptar -x -z -f ..\..\%ARCH%\perl-libsass\CSS-Sass-%RELVERSION%.tar.gz
 
 cd ..\..

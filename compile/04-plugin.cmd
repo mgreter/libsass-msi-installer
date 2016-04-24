@@ -1,4 +1,5 @@
 @echo off
+SETLOCAL
 cd /D %~dp0
 set PLUGIN=%1
 call ..\mingw.cmd
@@ -12,8 +13,8 @@ chdir %SASS_PLUGIN_PATH%\build
 
 cmake -G "MinGW Makefiles" .. -DLIBSASS_DIR="../../libsass"
 
-mingw32-make clean
-mingw32-make %PLUGIN%
+%MAKE% clean
+%MAKE% %PLUGIN%
 
 if not exist %PREFIX% mkdir %PREFIX%
 if not exist %PREFIX%\plugin mkdir %PREFIX%\plugin

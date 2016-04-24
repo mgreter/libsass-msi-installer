@@ -3,8 +3,10 @@ The installer is created by the [WIX Toolset] [1] (3.10). You need to
 have it installed and `%WIX%` environment variable set up correctly.
 After that you should be able to simply execute the scripts in order!
 
-Some [unxutils] [2] are included to make it "run out of the box". 
+Some [unxutils] [2] are included to make it "run out of the box".
 You will also need to have git available in your global path!
+
+[![Build status](https://ci.appveyor.com/api/projects/status/54m5ygkkekj0a488/branch/master?svg=true)](https://ci.appveyor.com/project/sass/libsass-msi-installer/branch/master)
 
 ## Rough step by step guide
 

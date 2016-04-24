@@ -1,6 +1,9 @@
 @echo off
 
-for /F "tokens=2 skip=1" %%V IN ('x86\sassc.exe -v') DO (
+IF %ARCH% == 64 set XARCH=x64
+IF %ARCH% == 32 set XARCH=x86
+
+for /F "tokens=2 skip=1" %%V IN ('%XARCH%\sassc.exe -v') DO (
 	set gitrelease=%%V
 	goto :has_release
 )

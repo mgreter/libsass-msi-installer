@@ -1,0 +1,13 @@
+cache:
+  - mingw
+
+platform:
+  - x86
+  - x64
+
+build_script:
+  - 99-build-%PLATFORM%.bat
+
+artifacts:
+  - path: 'create\dist\*.msi'
+    name: LibSass MSI Installer

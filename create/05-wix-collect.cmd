@@ -1,4 +1,5 @@
 @echo off
+SETLOCAL
 cd /D %~dp0
 call ..\unxutils.cmd
 call ..\settings.cmd

@@ -10,4 +10,6 @@
 /compile/*.7z
 /compile/mingw32
 /compile/mingw64
+/downloads
+/mingw
 

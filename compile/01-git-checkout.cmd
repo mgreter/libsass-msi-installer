@@ -1,6 +1,8 @@
 @echo off
+SETLOCAL
 cd /D %~dp0
 call ..\mingw.cmd
+
 if not exist %ARCH% mkdir %ARCH%
 
 if not exist %ARCH%/sassc (

@@ -1,4 +1,5 @@
 # Set default behaviour, in case users don't have core.autocrlf set.
+# Auto detect text files and perform LF normalization
 * text=auto
 
 # Explicitly declare text files we want to always be normalized and converted

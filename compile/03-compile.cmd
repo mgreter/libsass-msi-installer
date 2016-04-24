@@ -1,10 +1,11 @@
 @echo off
+SETLOCAL
 cd /D %~dp0
 call ..\mingw.cmd
 if not exist %ARCH% mkdir %ARCH%
 
-mingw32-make CC=gcc BUILD=shared -C "%SASS_LIBSASS_PATH%" -j6
-mingw32-make CC=gcc BUILD=shared -C "%SASS_SASSC_PATH%" -j6
+%MAKE% BUILD=shared -C "%SASS_LIBSASS_PATH%" -j6
+%MAKE% BUILD=shared -C "%SASS_SASSC_PATH%" -j6
 
 if not exist %PREFIX% mkdir %PREFIX%
 if not exist %PREFIX%\include mkdir %PREFIX%\include
