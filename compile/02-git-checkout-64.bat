@@ -1,4 +1,0 @@
-@echo off
-set ARCH=64
-call %~dp0\02-git-checkout.cmd
-pause

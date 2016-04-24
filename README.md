@@ -12,8 +12,9 @@ You will also need to have git available in your global path!
 ```cmd
 cd compile
 set ARCH=32
-01-download-mingw-%ARCH%
-02-git-checkout-%ARCH%
+00-download-mingw-%ARCH%
+01-git-checkout-%ARCH%
+02-clean-%ARCH%
 03-compile-%ARCH%
 04-plugin-%ARCH%
 cd ..

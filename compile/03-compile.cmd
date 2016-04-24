@@ -3,9 +3,6 @@ cd /D %~dp0
 call ..\mingw.cmd
 if not exist %ARCH% mkdir %ARCH%
 
-REM mingw32-make -C "%SASS_LIBSASS_PATH%" clean
-REM mingw32-make -C "%SASS_SASSC_PATH%" clean
-
 mingw32-make CC=gcc BUILD=shared -C "%SASS_LIBSASS_PATH%" -j6
 mingw32-make CC=gcc BUILD=shared -C "%SASS_SASSC_PATH%" -j6
 
