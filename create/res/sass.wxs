@@ -87,9 +87,14 @@
 						<File Id="libsass.dll" Name="libsass.dll" Source="libsass.dll" KeyPath="yes"/>
 					</Component>
 
-					<Directory Id="PLUGINDIR" Name="plugin">
-						<Component Id="PluginLibrary" Guid="197A3319-9DE1-419A-BFB2-633678FF9F0B">
+					<Directory Id="MATHPLUGINDIR" Name="plugin">
+						<Component Id="MathPluginLibrary" Guid="197A3319-9DE1-419A-BFB2-633678FF9F0B">
 							<File Id="math.dll" Name="math.dll" Source="plugin/math.dll" KeyPath="yes"/>
+						</Component>
+					</Directory>
+					<Directory Id="GLOBPLUGINDIR" Name="plugin">
+						<Component Id="GlobPluginLibrary" Guid="197A3319-9DE1-419A-BFB2-633678FF9FCB">
+							<File Id="glob.dll" Name="glob.dll" Source="plugin/glob.dll" KeyPath="yes"/>
 						</Component>
 					</Directory>
 
@@ -240,15 +245,31 @@
 				Level="99"
 				Id="PluginMath"
 				Absent="allow"
-				Title="Math plugin (experimental)"
+				Title="Math functions plugin (alpha)"
 				AllowAdvertise="no"
 				TypicalDefault="install"
 				InstallDefault="followParent"
 				ConfigurableDirectory="APPLICATIONFOLDER"
-				Description="Install math (pow/fact/exp/sqrt and trigonometry) plugin."
+				Description="Install plugin for math (pow/fact/exp/sqrt and trigonometry) functions."
 			>
 
-				<ComponentRef Id="PluginLibrary" />
+				<ComponentRef Id="MathPluginLibrary" />
+
+			</Feature>
+
+			<Feature
+				Level="99"
+				Id="PluginGlob"
+				Absent="allow"
+				Title="Glob imports plugin (experimental)"
+				AllowAdvertise="no"
+				TypicalDefault="install"
+				InstallDefault="followParent"
+				ConfigurableDirectory="APPLICATIONFOLDER"
+				Description="Install plugin for glob-based imports (ie `**/*.scss`)."
+			>
+
+				<ComponentRef Id="GlobPluginLibrary" />
 
 			</Feature>
 

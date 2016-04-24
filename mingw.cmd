@@ -1,6 +1,5 @@
 @echo off
 set SASS_LIBSASS_PATH=%~dp0\compile\%ARCH%\libsass
-set SASS_PLUGIN_PATH=%~dp0\compile\%ARCH%\libsass-math
 set SASS_SASSC_PATH=%~dp0\compile\%ARCH%\sassc
 set PATH=%~dp0\compile\mingw%ARCH%\bin;%PATH%
 
