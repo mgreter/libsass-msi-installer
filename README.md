@@ -57,5 +57,9 @@ cd ..
 
 http://libsass.ocbnet.ch/installer/
 
+### artifacts can also be downloaded from
+
+https://ci.appveyor.com/project/sass/libsass-msi-installer
+
 [1]: http://wixtoolset.org/
 [2]: http://unxutils.sourceforge.net/
