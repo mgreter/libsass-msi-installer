@@ -14,6 +14,8 @@ call pp -B -o psass.exe ^
 -M List::MoreUtils::PP ^
 -M Win32::ChangeNotify ^
 -M Filesys::Notify::Simple ^
+-l "%PERLDIR%/perl/site/lib/libsass.dll" ^
+-a "%PERLDIR%/perl/site/lib/auto/CSS/Sass/plugins;lib/auto/CSS/Sass/plugins" ^
 CSS-Sass-%RELVERSION%/bin/psass
 
 cd ..\..

@@ -19,3 +19,5 @@ dist\sass.wixobj ^
 -o ..\dist\libsass-%gitrelease%-%XARCH%.msi
 
 cd ..
+
+echo created dist\libsass-%gitrelease%-%XARCH%.msi

@@ -12,7 +12,7 @@ if not exist %ARCH%/sassc (
 )
 
 if not exist %ARCH%/libsass (
-  git -C %ARCH% clone https://github.com/sass/libsass.git
+  git -C %ARCH% clone https://github.com/sass/libsass.git --branch 3.4-stable
 ) else (
   git -C %ARCH%/libsass pull -ff
 )
@@ -27,4 +27,10 @@ if not exist %ARCH%/libsass-glob (
   git -C %ARCH% clone https://github.com/mgreter/libsass-glob.git
 ) else (
   git -C %ARCH%/libsass-glob pull -ff
+)
+
+if not exist %ARCH%/libsass-digest (
+  git -C %ARCH% clone https://github.com/mgreter/libsass-digest.git
+) else (
+  git -C %ARCH%/libsass-digest pull -ff
 )

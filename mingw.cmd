@@ -4,6 +4,9 @@ REM has trailing slash!
 set ROOT=%~dp0
 
 set SASS_LIBSASS_PATH=%ROOT%compile\%ARCH%\libsass
+set SASS_MATH_PATH=%ROOT%compile\%ARCH%\libsass-math
+set SASS_GLOB_PATH=%ROOT%compile\%ARCH%\libsass-glob
+set SASS_DIGEST_PATH=%ROOT%compile\%ARCH%\libsass-digest
 set SASS_SASSC_PATH=%ROOT%compile\%ARCH%\sassc
 set PATH=%ROOT%mingw\mingw%ARCH%\bin;%PATH%
 REM this would be dangerous, but should work

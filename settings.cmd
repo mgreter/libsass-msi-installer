@@ -21,7 +21,15 @@ for /F "tokens=2 delims=eta" %%V IN ('echo %gitmicro%') DO set gitmicro=%%V
 
 set gitversion=%gitmajor%.%gitminor%.%gitpatch%
 
-if "%gitmicro%" NEQ "" set gitversion=%gitversion%.%gitmicro%
+REM ToDo: check for numeric arg
+if "%gitmicro%" NEQ "" (
+	if "%gitmicro%" NEQ "beta" (
+		if "%gitmicro%" NEQ "alpha" (
+			set gitversion=%gitversion%.%gitmicro%
+		)
+	)
+)
 
 REM echo gitrelease: %gitrelease%
 REM echo gitversion: %gitversion%
+
