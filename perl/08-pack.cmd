@@ -8,6 +8,7 @@ cd dist\%ARCH%
 
 call pp -B -o psass.exe ^
 -I ../../../blib/lib ^
+-M Benchmark ^
 -M Encode::Byte ^
 -M PerlIO::encoding ^
 -M List::MoreUtils::XS ^
