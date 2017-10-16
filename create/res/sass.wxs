@@ -102,6 +102,11 @@
 							<File Id="glob.dll" Name="glob.dll" Source="plugin/glob.dll" KeyPath="yes"/>
 						</Component>
 					</Directory>
+					<Directory Id="IMGSIZEPLUGINDIR" Name="plugin">
+						<Component Id="ImgSizePluginLibrary" Guid="197A3319-9DE1-419A-BFB2-633678FF9FDB">
+							<File Id="imgsize.dll" Name="img-size.dll" Source="plugin/img-size.dll" KeyPath="yes"/>
+						</Component>
+					</Directory>
 
 					<Directory Id="INCLUDEDIR" Name="include">
 						<Component Id="MainHeaders" Guid="197A3319-8495-484D-863F-5B99AE4F8B94">
@@ -291,6 +296,22 @@
 			>
 
 				<ComponentRef Id="GlobPluginLibrary" />
+
+			</Feature>
+
+			<Feature
+				Level="99"
+				Id="PluginImgSize"
+				Absent="allow"
+				Title="Image size plugin (experimental)"
+				AllowAdvertise="no"
+				TypicalDefault="install"
+				InstallDefault="followParent"
+				ConfigurableDirectory="APPLICATIONFOLDER"
+				Description="Install plugin for image sizes (png/jpg/gif)."
+			>
+
+				<ComponentRef Id="ImgSizePluginLibrary" />
 
 			</Feature>
 

@@ -34,3 +34,9 @@ if not exist %ARCH%/libsass-digest (
 ) else (
   git -C %ARCH%/libsass-digest pull -ff
 )
+
+if not exist %ARCH%/libsass-img-size (
+  git -C %ARCH% clone https://github.com/mgreter/libsass-img-size.git --branch libsass-3.4
+) else (
+  git -C %ARCH%/libsass-img-size pull -ff
+)

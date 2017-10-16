@@ -24,4 +24,5 @@ cd ..\..
 REM tested and working, but much bigger size
 REM -l "%PERLPATH%/c/bin/_libsass-0.dll" ^
 
+if not exist %CD%\..\create\%XARCH% mkdir %CD%\..\create\%XARCH%
 copy %CD%\dist\%ARCH%\psass.exe %CD%\..\create\%XARCH%

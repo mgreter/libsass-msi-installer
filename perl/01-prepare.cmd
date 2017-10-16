@@ -26,7 +26,7 @@ call cpanm Win32::Unicode --notest
 
 echo ================================================================================
 
-call cpanm PAR::Packer --notest
+call cpanm RSCHUPP/PAR-Packer-1.037.tar.gz --notest
 call cpanm List::MoreUtils --notest
 
 echo ================================================================================
