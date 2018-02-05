@@ -9,8 +9,8 @@ echo Compiling installer for %gitversion% (%XARCH%)
 
 cd %XARCH%
 
-"%WIX%\bin\candle.exe" -arch %XARCH% -dPlatform="%XARCH%" -nologo -ext WixBalExtension -dGitVersion=%gitversion% -out dist\files.wixobj dist\files.wxs
+"%WIX%\candle.exe" -arch %XARCH% -dPlatform="%XARCH%" -nologo -ext WixBalExtension -dGitVersion=%gitversion% -out dist\files.wixobj dist\files.wxs
 
-"%WIX%\bin\candle.exe" -arch %XARCH% -dPlatform="%XARCH%" -nologo -ext WixBalExtension -ext WixUtilExtension -dGitVersion=%gitversion% -out dist\sass.wixobj ..\res\sass.wxs
+"%WIX%\candle.exe" -arch %XARCH% -dPlatform="%XARCH%" -nologo -ext WixBalExtension -ext WixUtilExtension -dGitVersion=%gitversion% -out dist\sass.wixobj ..\res\sass.wxs
 
 cd ..

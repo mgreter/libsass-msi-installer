@@ -7,7 +7,7 @@ if not exist dist mkdir dist
 
 cd %XARCH%
 
-"%WIX%\bin\light.exe" ^
+"%WIX%\light.exe" ^
 -nologo -sw1076 ^
 -dPlatform="%XARCH%" ^
 -dGitVersion=%gitversion% ^
