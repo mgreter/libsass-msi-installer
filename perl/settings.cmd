@@ -4,6 +4,7 @@ set drive=%~dp0
 set drivep=%drive%
 set PERLVER=5.24.0.1
 set PERLDIR=%drivep%\%ARCH%\perl
+set PERL_CPANM_HOME=%PERLDIR%\data\.cpanm
 
 REM latest version can be queried via 99-shell:
 REM perl tools\query-version.pl CSS::Sass
