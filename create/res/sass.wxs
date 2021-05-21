@@ -92,11 +92,11 @@
 							<File Id="math.dll" Name="math.dll" Source="plugin/math.dll" KeyPath="yes"/>
 						</Component>
 					</Directory>
-					<!-- <Directory Id="DIGESTPLUGINDIR" Name="plugin">
+					<Directory Id="DIGESTPLUGINDIR" Name="plugin">
 						<Component Id="DigestPluginLibrary" Guid="197A3319-9DE1-419A-BFB2-633678FF9FAB">
 							<File Id="digest.dll" Name="digest.dll" Source="plugin/digest.dll" KeyPath="yes"/>
 						</Component>
-					</Directory> -->
+					</Directory>
 					<Directory Id="GLOBPLUGINDIR" Name="plugin">
 						<Component Id="GlobPluginLibrary" Guid="197A3319-9DE1-419A-BFB2-633678FF9FCB">
 							<File Id="glob.dll" Name="glob.dll" Source="plugin/glob.dll" KeyPath="yes"/>
@@ -267,7 +267,7 @@
 
 			</Feature>
 
-			<!-- <Feature
+			<Feature
 				Level="99"
 				Id="PluginDigest"
 				Absent="allow"
@@ -281,7 +281,7 @@
 
 				<ComponentRef Id="DigestPluginLibrary" />
 
-			</Feature> -->
+			</Feature>
 
 			<Feature
 				Level="99"
